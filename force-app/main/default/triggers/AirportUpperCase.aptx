@@ -1,0 +1,8 @@
+trigger AirportUpperCase on Airport__c (before insert, before update) {
+    for (Airport__c airport : Trigger.new) {
+        String iata = airport.IATA__c;
+        if (iata != null && !iata.equals(iata.toUpperCase())) {
+            airport.IATA__c = iata.toUpperCase();
+        }
+    }
+}

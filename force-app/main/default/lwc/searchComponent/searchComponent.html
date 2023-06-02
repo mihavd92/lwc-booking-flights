@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="text-input-id-46">Використайте IATA код для пошуку Аеропорта в будь-якій точці світу!</label>
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
+        <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#search"></use>
+        </svg>
+        <input type="text" id="text-input-id-46" placeholder="APS" class="slds-input" maxlength="3" oninput={handleInput} />
+        <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Clear" onclick={handleClearInput}>
+        <svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#clear"></use>
+        </svg>
+        <span class="slds-assistive-text">Clear</span>
+        </button>
+        </div>
+    </div>
+    <template if:true={airportName}>
+        <lightning-card>
+            <div>Arrival Airport: <lightning-badge icon-name="utility:checkin" label={airportName} class="slds-m-left_small"></lightning-badge></div>
+            <template if:true={showSaveButton}>
+                <div class="slds-m-top_small">
+                    <lightning-button label="Save Flight" variant="brand" onclick={handleSaveFlight}></lightning-button>
+                </div>
+                <br />
+                <lightning-map map-markers={mapMarkers} zoom-level={zoomLevel}> </lightning-map>
+            </template>
+        </lightning-card>
+    </template>
+</template>

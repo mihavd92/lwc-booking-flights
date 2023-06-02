@@ -1,0 +1,8 @@
+<template>
+    <lightning-card icon-name="action:map" title="Booking Flights">
+        <div class="slds-m-bottom_small">
+            <div>Departure Airport: <lightning-badge icon-name="utility:checkin" label={airportName} class="slds-m-left_small"></lightning-badge></div>
+        </div>
+        <c-search-component departure-airport-id={recordId}></c-search-component>
+    </lightning-card>
+</template>
